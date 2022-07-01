@@ -17,17 +17,20 @@ app.use('/api', api);
 
 // Routes
 // Home/landing page
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, './public/index.html'))
-);
+app.get('/', (req, res) => {
+    res.status(200);
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 // notes page
-app.get("/", (req, res) => {
+app.get("/notes", (req, res) => {
+    res.status(200);
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
 // all error pages for a 404 message
 app.get('*', (req, res) => {
+    res.status(404);
     res.sendFile(path.join(__dirname, './public/404.html'))
 })
 
