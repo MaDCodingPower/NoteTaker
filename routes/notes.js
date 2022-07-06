@@ -42,17 +42,13 @@ router.delete('/:id', (req, res) =>{
     fs.readFile(notesFilePath, (err, data) => {
         try {
             const parsedData = JSON.parse(data);
-            console.log(parsedData.length)
             // Is there a data structure that you could use, that prevents you 
             // from needing to loop through an array to find if an id exists?
-            for (let i=0; i<parsedData.length; i++) 
-            
+            for (let i=0; i<parsedData.length; i++)
             {
                 
                 if (parsedData[i].id === deleteNoteId){
-                    console.log("2")
                     parsedData.splice(i-1,1);
-                    console.log("3")
                     fs.writeFileSync(notesFilePath, JSON.stringify(parsedData));
                 }
             }
