@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
                 console.log(err);
                 return res.status(400).json(err);
             }
-
+            
             try {
                 const parsedData = JSON.parse(data);
                 parsedData.push(newNote);
